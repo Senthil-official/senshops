@@ -105,13 +105,14 @@ footer {
 </head>
 <body>
     <header>
-        <h1>Our Products</h1>
+        <h1>Sen e-Shop</h1>
+        <marquee>Every customers or consumers can sell Products / services here!! </marquee>
     </header>
     <main id="productList">
-        <div class="loading">Loading products...</div>
+        <div class="loading">கடை பொருட்கள் தெரிவு செய்யபடுகிறது ...</div>
     </main>
     <footer>
-        <p>&copy; 2025 My Store</p>
+        <p>&copy; 2025 sen E-shops </p>
     </footer>
     <script src="script.js"></script>
 </body>
@@ -122,7 +123,7 @@ footer {
 
     // !!! IMPORTANT: Replace with your Google Apps Script Web App URL !!!
     const appsScriptURL = 'https://script.google.com/macros/s/AKfycbzPw9TM9r-GZL3KxYZdT9wt8J4KjFtOPaHpfIVvmCKTsXeDRaVR31bTUWBuGudn4YE/exec';
-    const yourWhatsAppNumber = '919360291050'; // e.g., '911234567890' (include country code without '+' or '00')
+    const yourWhatsAppNumber = '919360291050'; 
 
     async function fetchProducts() {
         try {
@@ -134,7 +135,7 @@ footer {
             displayProducts(products);
         } catch (error) {
             console.error("Error fetching products:", error);
-            productList.innerHTML = '<p>Failed to load products. Please try again later.</p>';
+            productList.innerHTML = '<p>Failed to load products. Please try again later or refresh page.</p>';
         } finally {
             if (loadingIndicator) {
                 loadingIndicator.style.display = 'none';
@@ -153,7 +154,7 @@ footer {
             productCard.classList.add('product-card');
 
             const productImage = document.createElement('img');
-            productImage.src = product.ImageURL || 'https://via.placeholder.com/150?text=No+Image'; // Fallback image
+            productImage.src = product.ImageURL || ''; // Fallback image
             productImage.alt = product.ProductName;
 
             const productName = document.createElement('h3');
@@ -181,7 +182,7 @@ Price: ₹${product.Price}`;
                 const encodedMessage = encodeURIComponent(message);
 
                 // Create the WhatsApp redirect URL
-                const whatsappURL = `https://wa.me/${919360291050}?text=${testing}`;
+                const whatsappURL = `https://wa.me/919360291050`;
 
                 // Redirect the user
                 window.open(whatsappURL, '_blank');
