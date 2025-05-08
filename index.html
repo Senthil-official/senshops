@@ -513,15 +513,15 @@
             if (fileId) {
                 return `https://drive.google.com/uc?export=view&id=${fileId}`;
             }
-            return originalUrl;
+            return originalUrl; // Return original URL if no match found
         }
 
 
         async function fetchProducts() {
             // Clear previous products if any, but keep loading indicator if it's separate
             // If loadingIndicator is inside productList, this will remove it too soon.
-            // productList.innerHTML = ''; // Optional: clear before loading new
-            if(loadingIndicator) loadingIndicator.style.display = 'flex';
+            productList.innerHTML = ''; // Optional: clear before loading new
+            if(loadingIndicator) loadingIndicator.style.display = 'flex'; // Show loading indicator
 
 
             try {
@@ -584,7 +584,8 @@
                 buyButton.innerHTML = 'Make order <i class="fab fa-whatsapp"></i>'; // Added icon
                 buyButton.addEventListener('click', () => {
                     const message = `Hi, I'm interested in buying the product:
-Product Name: ${product.ProductName || 'N/A'}
+Product Image: ${imageUrl || 'N/A'}
+                    Product Name: ${product.ProductName || 'N/A'}
 Product ID: ${product.ProductID || 'N/A'}
 Price: ₹${!isNaN(price) ? price.toFixed(2) : 'N/A'}`;
 
